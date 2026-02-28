@@ -11,12 +11,78 @@
     <h1>Fallen</h1>
     <h2>Rei da perfeitinha</h2>
     <img src="https://pbs.twimg.com/media/FMxySCdXsAg45JU.jpg" style="width: 25%;">
+    
     <p>Comente:</p>
-    <input type="text" placeholder="Oque você gostaria de comentar?" style="width: 300px;">
-    <button>Enviar</button>
+    <form id="formComentario">
+        <input type="text" id="usuario" placeholder="Seu nome" style="width: 200px;" required>
+        <input type="text" id="comentario" placeholder="O que você gostaria de comentar?" style="width: 300px;" required>
+        <button type="submit">Enviar</button>
+    </form>
+    
     <hr>
-        <img src="https://avatars.akamai.steamstatic.com/54943af8f0f6eb25cc2b442e46c15926e28bda54_full.jpg" style="display: inline-block; vertical-align: middle; border-radius: 50%; width: 5%;">
-        <p style="display: inline-block; vertical-align: middle;">WaveIGL</p>
-        <p>aaaaaaaaaaaaaaaaaah!!!!!!</p>
+    
+    <div id="listaComentarios">
+        <!-- Comentários serão carregados aqui -->
+    </div>
+
+    <script>
+        const API_URL = "http://localhost:3000";
+
+        function renderizarComentarios(comentarios) {
+            const lista = document.getElementById("listaComentarios");
+            lista.innerHTML = "";
+            
+            comentarios.forEach(comentario => {
+                const divComentario = document.createElement("div");
+                divComentario.className = "comentario";
+                divComentario.innerHTML = `
+                    <img src="${comentario.avatar}" 
+                         style="display: inline-block; vertical-align: middle; border-radius: 50%; width: 5%;">
+                    <p style="display: inline-block; vertical-align: middle;"><strong>${comentario.usuario}</strong></p>
+                    <p>${comentario.texto}</p>
+                `;
+                lista.appendChild(divComentario);
+            });
+        }
+        async function carregarComentarios() {
+            try {
+                const response = await fetch(`${API_URL}/comentarios`);
+                const comentarios = await response.json();
+                renderizarComentarios(comentarios);
+            } catch (erro) {
+                console.error("Erro ao carregar comentários:", erro);
+            }
+        }
+
+        // Capturar submit do formulário
+        document.getElementById("formComentario").addEventListener("submit", async (event) => {
+            event.preventDefault();
+            
+            const usuario = document.getElementById("usuario").value;
+            const texto = document.getElementById("comentario").value;
+            
+            try {
+                const response = await fetch(`${API_URL}/comentarios`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({ usuario, texto })
+                });
+                
+                if (response.ok) {
+                    document.getElementById("comentario").value = "";
+                    
+                    await carregarComentarios();
+                } else {
+                    alert("Erro ao enviar comentário");
+                }
+            } catch (erro) {
+                console.error("Erro ao enviar comentário:", erro);
+                alert("Erro ao enviar comentário. Verifique se o servidor está rodando.");
+            }
+        });
+        carregarComentarios();
+    </script>
 </body>
 </html>
