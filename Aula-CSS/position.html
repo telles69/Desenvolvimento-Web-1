@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position CSS</title>
+    <link rel="stylesheet" href="positionstyle.css">
+</head>
+<body>
+    <h1>Position CSS</h1>
+
+    <div>
+        <h3>Relative</h3>
+        Top: <input type="range" id="rel-top" min="-100" max="100" value="0"> <span id="rel-top-val">0px</span><br>
+        Left: <input type="range" id="rel-left" min="-100" max="100" value="0"> <span id="rel-left-val">0px</span><br>
+        Right: <input type="range" id="rel-right" min="-100" max="100" value="0"> <span id="rel-right-val">0px</span>
+    </div>
+
+    <div>
+        <h3>Absolute</h3>
+        Top: <input type="range" id="abs-top" min="0" max="300" value="50"> <span id="abs-top-val">50px</span><br>
+        Left: <input type="range" id="abs-left" min="0" max="300" value="50"> <span id="abs-left-val">50px</span><br>
+        Right: <input type="range" id="abs-right" min="0" max="300" value="0"> <span id="abs-right-val">0px</span>
+    </div>
+
+    <div>
+        <h3>Fixed</h3>
+        Top: <input type="range" id="fix-top" min="0" max="400" value="100"> <span id="fix-top-val">100px</span><br>
+        Left: <input type="range" id="fix-left" min="0" max="400" value="0"> <span id="fix-left-val">0px</span><br>
+        Right: <input type="range" id="fix-right" min="0" max="400" value="20"> <span id="fix-right-val">20px</span>
+    </div>
+
+    <div class="container">
+        <div class="box-relative" id="box-rel">RELATIVE</div>
+        <div class="box-absolute" id="box-abs">ABSOLUTE</div>
+    </div>
+
+    <div class="box-fixed" id="box-fix">FIXED</div>
+
+    <p>Role a página para ver o elemento fixed</p>
+
+    <script>
+        const boxRel = document.getElementById('box-rel');
+        const boxAbs = document.getElementById('box-abs');
+        const boxFix = document.getElementById('box-fix');
+
+        document.getElementById('rel-top').addEventListener('input', function() {
+            boxRel.style.top = this.value + 'px';
+            document.getElementById('rel-top-val').textContent = this.value + 'px';
+        });
+        document.getElementById('rel-left').addEventListener('input', function() {
+            boxRel.style.left = this.value + 'px';
+            document.getElementById('rel-left-val').textContent = this.value + 'px';
+        });
+        document.getElementById('rel-right').addEventListener('input', function() {
+            boxRel.style.right = this.value + 'px';
+            document.getElementById('rel-right-val').textContent = this.value + 'px';
+        });
+
+        document.getElementById('abs-top').addEventListener('input', function() {
+            boxAbs.style.top = this.value + 'px';
+            document.getElementById('abs-top-val').textContent = this.value + 'px';
+        });
+        document.getElementById('abs-left').addEventListener('input', function() {
+            boxAbs.style.left = this.value + 'px';
+            boxAbs.style.right = 'auto';
+            document.getElementById('abs-left-val').textContent = this.value + 'px';
+        });
+        document.getElementById('abs-right').addEventListener('input', function() {
+            boxAbs.style.right = this.value + 'px';
+            boxAbs.style.left = 'auto';
+            document.getElementById('abs-right-val').textContent = this.value + 'px';
+        });
+
+        document.getElementById('fix-top').addEventListener('input', function() {
+            boxFix.style.top = this.value + 'px';
+            document.getElementById('fix-top-val').textContent = this.value + 'px';
+        });
+        document.getElementById('fix-left').addEventListener('input', function() {
+            boxFix.style.left = this.value + 'px';
+            boxFix.style.right = 'auto';
+            document.getElementById('fix-left-val').textContent = this.value + 'px';
+        });
+        document.getElementById('fix-right').addEventListener('input', function() {
+            boxFix.style.right = this.value + 'px';
+            boxFix.style.left = 'auto';
+            document.getElementById('fix-right-val').textContent = this.value + 'px';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Espaçamento CSS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Controle de Espaçamento CSS</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label>
+                    Padding: <span class="value-display" id="padding-value">20px</span>
+                </label>
+                <input type="range" id="padding-control" min="0" max="100" value="20">
+            </div>
+
+            <div class="control-group">
+                <label>
+                    Border: <span class="value-display" id="border-value">5px</span>
+                </label>
+                <input type="range" id="border-control" min="0" max="20" value="5">
+            </div>
+
+            <div class="control-group">
+                <label>
+                    Margin: <span class="value-display" id="margin-value">20px</span>
+                </label>
+                <input type="range" id="margin-control" min="0" max="100" value="20">
+            </div>
+        </div>
+
+        <div class="demo-area">
+            <div id="demo-box">
+                Esta é uma div com texto.<br>
+                Ajuste os controles acima para ver as mudanças!
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const demoBox = document.getElementById('demo-box');
+        const paddingControl = document.getElementById('padding-control');
+        const borderControl = document.getElementById('border-control');
+        const marginControl = document.getElementById('margin-control');
+        const paddingValue = document.getElementById('padding-value');
+        const borderValue = document.getElementById('border-value');
+        const marginValue = document.getElementById('margin-value');
+
+        paddingControl.addEventListener('input', function() {
+            const value = this.value + 'px';
+            demoBox.style.padding = value;
+            paddingValue.textContent = value;
+        });
+
+        borderControl.addEventListener('input', function() {
+            const value = this.value + 'px';
+            demoBox.style.borderWidth = value;
+            borderValue.textContent = value;
+        });
+
+        marginControl.addEventListener('input', function() {
+            const value = this.value + 'px';
+            demoBox.style.margin = value;
+            marginValue.textContent = value;
+        });
+    </script>
+</body>
+</html>

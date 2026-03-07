@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+    min-height: 150vh;
+}
+
+.container {
+    position: relative;
+    border: 2px solid black;
+    height: 400px;
+    margin-top: 10px;
+}
+
+.box-relative {
+    position: relative;
+    background-color: green;
+    color: white;
+    padding: 10px;
+    width: 150px;
+}
+
+.box-absolute {
+    position: absolute;
+    background-color: orange;
+    color: white;
+    padding: 10px;
+    width: 150px;
+    top: 50px;
+    left: 50px;
+}
+
+.box-fixed {
+    position: fixed;
+    background-color: red;
+    color: white;
+    padding: 10px;
+    width: 150px;
+    top: 100px;
+    right: 20px;
+}
