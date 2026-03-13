@@ -3,17 +3,42 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #f8f8f8;
+    color: #222;
+}
+
+h1,
+h2 {
+    margin: 0 0 8px 0;
+}
+
+.foto-principal {
+    width: 25%;
+    max-width: 220px;
+    min-width: 120px;
+    border-radius: 10px;
+    margin-top: 8px;
 }
 
 #formComentario {
     margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
 }
 
 #formComentario input {
-    margin: 5px;
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.campo-usuario {
+    width: 200px;
+}
+
+.campo-comentario {
+    width: 300px;
 }
 
 #formComentario button {
@@ -33,12 +58,90 @@ body {
     margin: 15px 0;
     padding: 10px;
     border-bottom: 1px solid #eee;
+    background-color: #fff;
+    border-radius: 8px;
 }
 
-.comentario img {
+.comentario-avatar {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 50%;
+    width: 5%;
+    min-width: 32px;
     margin-right: 10px;
+}
+
+.comentario-usuario {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .comentario p {
     margin: 5px 0;
+}
+
+@media (max-width: 768px) {
+    body {
+        max-width: 100%;
+        padding: 16px;
+        background-color: #0f172a;
+        color: #e2e8f0;
+    }
+
+    h1,
+    h2,
+    p {
+        margin-bottom: 10px;
+    }
+
+    .foto-principal {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin-top: 12px;
+    }
+
+    #formComentario {
+        margin: 16px 0;
+        gap: 10px;
+    }
+
+    #formComentario input,
+    #formComentario button {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    #formComentario input {
+        border: 1px solid #334155;
+        background-color: #1e293b;
+        color: #e2e8f0;
+    }
+
+    #formComentario input::placeholder {
+        color: #94a3b8;
+    }
+
+    #formComentario button {
+        background-color: #38bdf8;
+        color: #0f172a;
+        font-weight: 600;
+    }
+
+    #formComentario button:hover {
+        background-color: #7dd3fc;
+    }
+
+    .comentario {
+        margin: 12px 0;
+        padding: 12px;
+        border-bottom: none;
+        background-color: #1e293b;
+    }
+
+    .comentario-avatar {
+        width: 12%;
+        min-width: 40px;
+    }
 }

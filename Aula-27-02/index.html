@@ -10,19 +10,19 @@
 
     <h1>Fallen</h1>
     <h2>Rei da perfeitinha</h2>
-    <img src="https://pbs.twimg.com/media/FMxySCdXsAg45JU.jpg" style="width: 25%;">
+    <img class="foto-principal" src="https://pbs.twimg.com/media/FMxySCdXsAg45JU.jpg" alt="Foto do Fallen">
     
     <p>Comente:</p>
     <form id="formComentario">
-        <input type="text" id="usuario" placeholder="Seu nome" style="width: 200px;" required>
-        <input type="text" id="comentario" placeholder="O que você gostaria de comentar?" style="width: 300px;" required>
+        <input class="campo-usuario" type="text" id="usuario" placeholder="Seu nome" required>
+        <input class="campo-comentario" type="text" id="comentario" placeholder="O que você gostaria de comentar?" required>
         <button type="submit">Enviar</button>
     </form>
     
     <hr>
     
     <div id="listaComentarios">
-        <!-- Comentários serão carregados aqui -->
+        
     </div>
 
     <script>
@@ -36,9 +36,8 @@
                 const divComentario = document.createElement("div");
                 divComentario.className = "comentario";
                 divComentario.innerHTML = `
-                    <img src="${comentario.avatar}" 
-                         style="display: inline-block; vertical-align: middle; border-radius: 50%; width: 5%;">
-                    <p style="display: inline-block; vertical-align: middle;"><strong>${comentario.usuario}</strong></p>
+                    <img class="comentario-avatar" src="${comentario.avatar}" alt="Avatar de ${comentario.usuario}">
+                    <p class="comentario-usuario"><strong>${comentario.usuario}</strong></p>
                     <p>${comentario.texto}</p>
                 `;
                 lista.appendChild(divComentario);
@@ -54,7 +53,6 @@
             }
         }
 
-        // Capturar submit do formulário
         document.getElementById("formComentario").addEventListener("submit", async (event) => {
             event.preventDefault();
             
