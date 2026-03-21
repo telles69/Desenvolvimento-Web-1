@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Blog do Fallen</title>
+
+    
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="home-page">
+   
+    <button class="theme-toggle" id="themeToggle" title="Alternar tema">
+      <i class="fas fa-moon"></i>
+    </button>
+
+   
+    <nav class="navbar navbar-expand-lg navbar-home">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">Blog do Fallen</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="perfil.html">
+                <i class="fas fa-user-circle"></i> Perfil
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="login.html">
+                <i class="fas fa-sign-out-alt"></i> Sair
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    
+    <div class="container py-5">
+      <div class="row mb-5">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="text-center">
+            <h1 class="display-5 fw-bold mb-2">Blog do Fallen</h1>
+            <p class="lead text-muted">Compartilhe suas opiniões de CS e siga a comunidade</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-5">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="comentario-form-wrapper">
+            <h5 class="mb-4">
+              <i class="fas fa-comment"></i> Deixe seu comentário
+            </h5>
+
+            <form class="comentario-form">
+              <div class="mb-3">
+                <label for="username" class="form-label fw-semibold">Usuário</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  value="Visitante"
+                  readonly
+                />
+              </div>
+
+              <div class="mb-3">
+                <label for="comentario" class="form-label fw-semibold">Comentário</label>
+                <textarea
+                  class="form-control"
+                  id="comentario"
+                  rows="4"
+                  placeholder="Escreva seu comentário aqui..."
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-enviar btn-lg">
+                <i class="fas fa-paper-plane"></i> Postar Comentário
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="mb-4">
+            <h5 class="mb-4">
+              <i class="fas fa-comments"></i> Comentários
+              <span class="badge bg-primary" id="comentarioCount">0</span>
+            </h5>
+          </div>
+
+          <div id="comentariosContainer" class="comentarios-list">
+            <div class="text-center text-muted py-5">
+              <p>Nenhum comentário ainda. Seja o primeiro!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer mt-5 py-4">
+      <div class="container text-center">
+        <p class="text-muted">&copy; 2026 Blog do Fallen. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/home.js"></script>
+  </body>
+</html>
